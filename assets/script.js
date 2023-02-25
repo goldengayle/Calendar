@@ -1,29 +1,56 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var saveButton = $('#saveBtn');
+var saveButton = $('.saveBtn');
 var heading =$('.anchor');
-var test = 10
+var test = 11
 var nowHour = dayjs().hour();
 var calendarArea = $('#calendarArea');
 var numID 
+var pnumID
+var taskList = JSON.parse(localStorage.getItem("taskList")) || [];
+
+console.log(taskList)
+
+//loadTasks();
+//function loadTasks(){
+//.each (function(){
+ //var taskTime = $(this).hour
+ //console.log(taskTime)
+//})
+//}
+
+console.log(saveButton)
+for (i=0 ; i < saveButton.length; i++) {
+  saveButton[i].addEventListener('click', function(){
+//save value to local storage in JSON string with ID of parent
+  var task ={
+      info: $(this).siblings(".description").val(),
+      hour: $(this).parent().attr('id')
+  }
+  console.log(task)
+  taskList.push(task)
+  localStorage.setItem("tasks",JSON.stringify(taskList));
+})}
+
+var hourBlocks = $(".time-block");
 
 
-var hourBlocks = document.getElementsByClassName("time-block");
-
-for(i = 8; i <hourBlocks.length; i-->0){
-  var numID = parseInt(hourBlocks[i].id );
-  if(numID > test ){
-    hourBlocks[i].className='future';
+hourBlocks.each (function () {
+  var numID = $(this).attr('id');
+  var pnum = parseInt(numID)
+  console.log(pnum)
+  if(pnum > test ){
+    $(this).addClass('future');
   } else if 
-    (numID === test){
-      hourBlocks[i].className ='present';
+    (pnum === test){
+      $(this).addClass('present');
     } else{
-      hourBlocks[i].className='past';
+      $(this).addClass('past');
     }
   }
-
-
+)
+  
 
 
 
@@ -33,13 +60,9 @@ heading.append (dayAnchor);
 console.log(nowHour);
 //$(function () {
 
-saveButton.on ('click', function(){
-    var apptHour = $(this).parent().attr("id");
-    console.log(apptHour);
-    header.append ('<p> apptHour</p>');
-    
 
-  })
+  
+  
 
 //if (now )
 
@@ -61,5 +84,4 @@ saveButton.on ('click', function(){
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
-//});
+  // TODO: Add code to display the current date in the header of the page*/
