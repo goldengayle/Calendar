@@ -3,47 +3,40 @@
 // in the html.
 var saveButton = $('.saveBtn');
 var heading =$('.anchor');
-var test = 11
 var nowHour = dayjs().hour();
-var calendarArea = $('#calendarArea');
 var numID 
 var pnumID
-var taskList = JSON.parse(localStorage.getItem("taskList")) || [];
+var hourBlocks = $(".time-block");
 
-console.log(taskList)
 
-//loadTasks();
-//function loadTasks(){
-//.each (function(){
- //var taskTime = $(this).hour
- //console.log(taskTime)
-//})
-//}
+$(document).ready(function() {
+hourBlocks.each (function(){
+  var hours = $(this).attr('id');
+  var taskItem = localStorage.getItem(hours);
+  $(this).children("textarea").val(taskItem);
+})
+})
 
-console.log(saveButton)
 for (i=0 ; i < saveButton.length; i++) {
   saveButton[i].addEventListener('click', function(){
-//save value to local storage in JSON string with ID of parent
-  var task ={
-      info: $(this).siblings(".description").val(),
-      hour: $(this).parent().attr('id')
-  }
-  console.log(task)
-  taskList.push(task)
-  localStorage.setItem("tasks",JSON.stringify(taskList));
+
+ var info= $(this).siblings("textarea").val();
+ var hour= $(this).parent().attr('id');
+  console.log(info)
+  localStorage.setItem(hour, info);
 })}
 
-var hourBlocks = $(".time-block");
+
 
 
 hourBlocks.each (function () {
   var numID = $(this).attr('id');
   var pnum = parseInt(numID)
   console.log(pnum)
-  if(pnum > test ){
+  if(pnum > nowHour ){
     $(this).addClass('future');
   } else if 
-    (pnum === test){
+    (pnum === nowHour){
       $(this).addClass('present');
     } else{
       $(this).addClass('past');
