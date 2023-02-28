@@ -14,7 +14,7 @@ N/A
 
 ## Credits
 All code  @goldengayle
-I worked with peers in my class on efficiently coding localfilestorage and retreival on this assignment (Adam Loppe and Jacob Willis)
+I received assistance from a classmate (Jacob Willis) on efficiently coding localfilestorage and retreival for this assignment.
 
 ## License
 MIT License
