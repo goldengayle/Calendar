@@ -14,7 +14,7 @@ N/A
 
 ## Credits
 All code  @goldengayle
-I received assistance from a classmate (Jacob Willis) on efficiently coding localfilestorage and retreival for this assignment.
+<br>I received assistance from a classmate (Jacob Willis) on efficiently coding localfilestorage and retreival for this assignment.
 
 ## License
 MIT License
