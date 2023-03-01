@@ -6,7 +6,7 @@ This project is a daily calendar. It is color-coded based on the time intervals 
 ## Usage
 AS A USER   I want to be able to efficiently manage appointments, and visually see what tasks are coming up in my day.  
 <br><a href="https://goldengayle.github.io/Calendar/"> Calendar</a>
-<br><img src="~/assets/calendarscreenshot.png" alt="screenshot of calendar">
+<br><img src="../assets/calendarscreenshot.png" alt="screenshot of calendar">
 
 ## Installation
 N/A
