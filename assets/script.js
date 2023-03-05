@@ -1,4 +1,4 @@
-
+//Global variables
 var saveButton = $('.saveBtn');
 var heading =$('.anchor');
 var nowHour = dayjs().hour();
@@ -7,7 +7,7 @@ var pnum
 var test = 11
 var hourBlocks = $(".time-block");
 
-
+// loads previous saved items in the correct timeslot
 $(document).ready(function() {
 hourBlocks.each (function(){
   var hours = $(this).attr('id');
@@ -16,6 +16,7 @@ hourBlocks.each (function(){
 })
 })
 
+//for each save button, it will save the item with an attribute associated with the day
 for (i=0 ; i < saveButton.length; i++) {
   saveButton[i].addEventListener('click', function(){
 
@@ -25,6 +26,7 @@ for (i=0 ; i < saveButton.length; i++) {
   localStorage.setItem(hour, info);
 })}
 
+//For each hour on the calendar, the class is set based on the current day
 hourBlocks.each (function () {
   var numID = $(this).attr('id');
   var pnum = parseInt(numID)
@@ -39,7 +41,8 @@ hourBlocks.each (function () {
     }
   }
 )
-  
+
+//Pulls current day from dayjs
 var dayAnchor = $('<p>');
 dayAnchor.text(dayjs().format('dddd, MMMM D YYYY '));
 heading.append (dayAnchor);
